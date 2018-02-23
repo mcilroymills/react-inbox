@@ -15,7 +15,7 @@ class App extends Component {
   getUnreadCount = () => this.state.messages.filter(message => message.read !== true).length;
 
   bulkSelect = () => {
-    const newMessages = this.state.messages.map(message => ({...message, selected: !this.state.bulkSelect}));
+    const newMessages = this.state.messages.map(message => ({ ...message, selected: !this.state.bulkSelect }));
 
     this.setState({
       messages: newMessages,
@@ -27,7 +27,7 @@ class App extends Component {
     this.setState({
       messages: this.state.messages.map(message => {
         if (message.selected === true) {
-          return Object.assign({}, message, { read: true })
+          return { ...message, read: true };
         } else {
           return message;
         }
@@ -39,7 +39,7 @@ class App extends Component {
     this.setState({
       messages: this.state.messages.map(message => {
         if (message.selected === true) {
-          return Object.assign({}, message, { read: false })
+          return { ...message, read: false };
         } else {
           return message;
         }
@@ -65,7 +65,6 @@ class App extends Component {
   };
 
   addLabel = (label) => {
-    console.log(label);
     this.setState({
       messages: this.state.messages.map(message => {
         if (message.selected === true && !message.labels.includes(label) && label !== "Apply label") {
@@ -78,7 +77,6 @@ class App extends Component {
   };
 
   removeLabel = (label) => {
-
     this.setState({
       messages: this.state.messages.map(message => {
         if (message.selected === true && message.labels.includes(label) && label !== "Remove label") {
@@ -106,6 +104,7 @@ class App extends Component {
     return (
       <div className="App">
         <Toolbar
+          selectCount={this.state.messages.filter(m => m.selected === true).length}
           selectAllButtonClass={this.getSelectAllButtonClass()}
           removeLabel={this.removeLabel}
           addLabel={this.addLabel}

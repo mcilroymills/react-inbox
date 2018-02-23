@@ -3,9 +3,9 @@ import Message from './Message';
 
 const Messages = ({ messages, handleClick }) => {
   return (
-    <li>
+    <div>
       {messages.map(message => <Message key={message.id} message={message} handleClick={handleClick}/>)}
-    </li>
+    </div>
   );
 };
 
