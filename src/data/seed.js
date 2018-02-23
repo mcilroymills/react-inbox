@@ -1,4 +1,4 @@
-const messages = [
+const importedMessages = [
   {
     "id": 1,
     "subject": "You can't input the protocol without calculating the mobile RSS protocol!",
@@ -12,14 +12,14 @@ const messages = [
     "read": false,
     "starred": false,
     "selected": true,
-    "labels": []
+    "labels": ["personal"]
   },
   {
     "id": 3,
     "subject": "Use the 1080p HTTP feed, then you can parse the cross-platform hard drive!",
     "read": false,
     "starred": true,
-    "labels": ["dev"]
+    "labels": ["dev", "personal"]
   },
   {
     "id": 4,
@@ -59,4 +59,4 @@ const messages = [
   }
 ];
 
-export default messages;
+export default importedMessages;

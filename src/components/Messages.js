@@ -1,10 +1,10 @@
 import React from 'react';
 import Message from './Message';
 
-const Messages = ({ messages }) => {
+const Messages = ({ messages, handleClick }) => {
   return (
     <li>
-      {messages.map(message => <Message message={message}/>)}
+      {messages.map(message => <Message key={message.id} message={message} handleClick={handleClick}/>)}
     </li>
   );
 };
